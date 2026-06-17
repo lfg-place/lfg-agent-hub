@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agent Training — RSVP</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --black: #000000;
+    --white: #FFFFFF;
+    --gray-100: #F5F5F5;
+    --gray-200: #E8E8E8;
+    --gray-400: #999999;
+    --gray-600: #555555;
+    --gray-800: #222222;
+    --success: #1A1A1A;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--white);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    color: var(--black);
+  }
+
+  /* Hero Header */
+  .hero {
+    width: 100%;
+    background: var(--black);
+    padding: 60px 24px 52px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      90deg,
+      rgba(255,255,255,0.015) 0px,
+      rgba(255,255,255,0.015) 1px,
+      transparent 1px,
+      transparent 60px
+    );
+    pointer-events: none;
+  }
+
+  .hero-eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gray-400);
+    margin-bottom: 20px;
+  }
+
+  .hero-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(56px, 10vw, 96px);
+    font-weight: 400;
+    color: var(--white);
+    line-height: 1.0;
+    margin-bottom: 20px;
+    letter-spacing: 0.04em;
+  }
+
+  .hero-title span {
+    color: var(--white);
+  }
+
+  .hero-sub {
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--gray-400);
+    max-width: 380px;
+    margin: 0 auto 36px;
+    line-height: 1.7;
+    letter-spacing: 0.02em;
+  }
+
+  .hero-divider {
+    width: 32px;
+    height: 1px;
+    background: var(--gray-600);
+    margin: 0 auto;
+  }
+
+  /* Card */
+  .card {
+    background: var(--white);
+    border-radius: 0;
+    padding: 52px 44px;
+    max-width: 560px;
+    width: calc(100% - 48px);
+    margin: 0 auto;
+    border-left: 1px solid var(--gray-200);
+    border-right: 1px solid var(--gray-200);
+    border-bottom: 1px solid var(--gray-200);
+  }
+
+  .card-intro {
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--gray-600);
+    line-height: 1.75;
+    margin-bottom: 40px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--gray-200);
+  }
+
+  /* Field groups */
+  .field-group {
+    margin-bottom: 24px;
+  }
+
+  .field-group label {
+    display: block;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gray-600);
+    margin-bottom: 8px;
+  }
+
+  .field-group input,
+  .field-group select {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid var(--gray-200);
+    border-radius: 0;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--black);
+    background: var(--white);
+    transition: border-color 0.15s;
+    outline: none;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+
+  .field-group select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23999' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    padding-right: 40px;
+    cursor: pointer;
+  }
+
+  .field-group input:focus,
+  .field-group select:focus {
+    border-color: var(--black);
+  }
+
+  .field-group input::placeholder {
+    color: var(--gray-400);
+    font-weight: 300;
+  }
+
+  .field-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  /* Section label */
+  .section-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--black);
+    margin-bottom: 20px;
+    margin-top: 36px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--gray-200);
+  }
+
+  /* Submit */
+  .submit-btn {
+    width: 100%;
+    margin-top: 36px;
+    padding: 16px;
+    background: var(--black);
+    color: var(--white);
+    border: none;
+    border-radius: 0;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.15s, transform 0.1s;
+  }
+
+  .submit-btn:hover {
+    background: var(--gray-800);
+  }
+
+  .submit-btn:active {
+    transform: scale(0.99);
+  }
+
+  .submit-btn .btn-accent {
+    color: var(--gray-400);
+  }
+
+  /* Disclaimer */
+  .disclaimer {
+    text-align: center;
+    font-size: 11px;
+    font-weight: 300;
+    color: var(--gray-400);
+    margin-top: 20px;
+    line-height: 1.6;
+    letter-spacing: 0.02em;
+  }
+
+  /* Success state */
+  .success-screen {
+    display: none;
+    text-align: center;
+    padding: 24px 0;
+  }
+
+  .success-icon {
+    width: 56px;
+    height: 56px;
+    border: 1px solid var(--gray-200);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 24px;
+  }
+
+  .success-icon svg {
+    width: 22px;
+    height: 22px;
+    color: var(--black);
+  }
+
+  .success-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 36px;
+    font-weight: 400;
+    color: var(--black);
+    margin-bottom: 12px;
+    letter-spacing: 0.04em;
+  }
+
+  .success-msg {
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--gray-600);
+    line-height: 1.7;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  /* Footer brand */
+  .brand-footer {
+    margin-top: 40px;
+    padding-top: 24px;
+    border-top: 1px solid var(--gray-200);
+    text-align: center;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gray-400);
+  }
+
+  .brand-footer strong {
+    color: var(--black);
+    font-weight: 500;
+  }
+
+  /* Error */
+  .field-error {
+    font-size: 11px;
+    color: #CC0000;
+    margin-top: 5px;
+    display: none;
+    letter-spacing: 0.02em;
+  }
+
+  input.invalid, select.invalid {
+    border-color: #CC0000 !important;
+  }
+
+  @media (max-width: 480px) {
+    .card { padding: 36px 20px; width: 100%; }
+    .field-row { grid-template-columns: 1fr; }
+    .hero { padding: 48px 20px 44px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <p class="hero-eyebrow">Live Frederick Group of Keller Williams &nbsp;|&nbsp; Powered by PLACE</p>
+  <h1 class="hero-title">Agent <span>Training</span></h1>
+  <p class="hero-sub">A hands-on session designed to help Frederick-area agents grow their business and close more deals. Reserve your seat below.</p>
+  <div class="hero-divider"></div>
+  <div style="margin-top: 28px; display: flex; justify-content: center; gap: 32px; flex-wrap: wrap;">
+    <div style="text-align: center;">
+      <div style="font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #555555; margin-bottom: 6px;">Date</div>
+      <div style="font-size: 14px; font-weight: 400; color: #ffffff; letter-spacing: 0.05em;">August 26, 2026</div>
+    </div>
+    <div style="width: 1px; background: #333333;"></div>
+    <div style="text-align: center;">
+      <div style="font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #555555; margin-bottom: 6px;">Time</div>
+      <div style="font-size: 14px; font-weight: 400; color: #ffffff; letter-spacing: 0.05em;">9:00 AM – 1:00 PM</div>
+    </div>
+    <div style="width: 1px; background: #333333;"></div>
+    <div style="text-align: center;">
+      <div style="font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #555555; margin-bottom: 6px;">Location</div>
+      <div style="font-size: 14px; font-weight: 400; color: #ffffff; letter-spacing: 0.05em;">Venture X — Frederick</div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+
+  <div id="form-view">
+    <p class="card-intro">
+      We're hosting a free training session for agents who are ready to level up their business. Space is limited — fill out the short form below and we'll confirm your seat.
+    </p>
+
+    <div class="section-label">Your info</div>
+
+    <div class="field-row">
+      <div class="field-group">
+        <label for="first-name">First name</label>
+        <input type="text" id="first-name" placeholder="Jane" autocomplete="given-name">
+        <div class="field-error" id="err-first">Required</div>
+      </div>
+      <div class="field-group">
+        <label for="last-name">Last name</label>
+        <input type="text" id="last-name" placeholder="Smith" autocomplete="family-name">
+        <div class="field-error" id="err-last">Required</div>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <label for="email">Email address</label>
+      <input type="email" id="email" placeholder="jane@example.com" autocomplete="email">
+      <div class="field-error" id="err-email">Please enter a valid email</div>
+    </div>
+
+    <div class="field-group">
+      <label for="phone">Phone number</label>
+      <input type="tel" id="phone" placeholder="(301) 555-0100" autocomplete="tel">
+      <div class="field-error" id="err-phone">Required</div>
+    </div>
+
+    <div class="section-label">Your business</div>
+
+    <div class="field-group">
+      <label for="brokerage">Current brokerage</label>
+      <input type="text" id="brokerage" placeholder="e.g. Long & Foster, RE/MAX...">
+      <div class="field-error" id="err-brokerage">Required</div>
+    </div>
+
+    <div class="field-group">
+      <label for="deals">Deals closed in the last 12 months</label>
+      <select id="deals">
+        <option value="" disabled selected>Select a range</option>
+        <option value="1-4">1 – 4 deals</option>
+        <option value="5-9">5 – 9 deals</option>
+        <option value="10-14">10 – 14 deals</option>
+        <option value="15-19">15 – 19 deals</option>
+      </select>
+      <div class="field-error" id="err-deals">Please select a range</div>
+    </div>
+
+    <div class="field-group">
+      <label for="struggle">Biggest area of struggle right now</label>
+      <select id="struggle">
+        <option value="" disabled selected>Select one</option>
+        <option value="Lead Generation">Lead generation — not enough leads coming in</option>
+        <option value="Lead Conversion">Lead conversion — leads aren't turning into clients</option>
+        <option value="Follow Up">Follow up — losing deals by not staying in touch</option>
+        <option value="Open Houses">Open houses — not getting results from them</option>
+        <option value="Listing Presentations">Listing presentations — not winning enough listings</option>
+        <option value="Buyer Consultations">Buyer consultations — struggling to sign buyers</option>
+        <option value="Time Management">Time management — too busy but not productive</option>
+        <option value="Database & CRM">Database & CRM — not using it consistently</option>
+        <option value="Social Media & Marketing">Social media & marketing — no consistent presence</option>
+        <option value="AI & Technology">AI & technology — not sure how to use it</option>
+        <option value="Pricing & Negotiations">Pricing & negotiations — losing on price conversations</option>
+        <option value="Building a Referral Business">Building a referral business — not getting enough repeat/referral</option>
+        <option value="Mindset & Motivation">Mindset & motivation — struggling to stay consistent</option>
+        <option value="Other">Other</option>
+      </select>
+      <div class="field-error" id="err-struggle">Please select an option</div>
+    </div>
+
+    <button class="submit-btn" id="submit-btn" onclick="submitForm()">
+      Reserve My Seat <span class="btn-accent">→</span>
+    </button>
+
+    <p class="disclaimer">Your information is only shared with the Live Frederick Group team and will never be sold or distributed.</p>
+  </div>
+
+  <div class="success-screen" id="success-view">
+    <div class="success-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="20 6 9 17 4 12"/>
+      </svg>
+    </div>
+    <h2 class="success-title">You're on the list.</h2>
+    <p class="success-msg">Thanks for registering. We'll be in touch shortly with event details and next steps.</p>
+  </div>
+
+  <div class="brand-footer">
+    <strong>Live Frederick Group</strong> of Keller Williams &nbsp;|&nbsp; Powered by PLACE
+  </div>
+
+</div>
+
+<script>
+  // ── Replace this URL with your Google Apps Script Web App URL ──
+  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxUMQC2Tea6ULTSmfP7gGRxqQl5weSIiMuaDGoHhvnJRVBgQx3dH6P-3ppAGDauCr3J/exec";
+
+  function showError(id, show) {
+    const el = document.getElementById(id);
+    if (el) el.style.display = show ? 'block' : 'none';
+  }
+
+  function setInvalid(id, invalid) {
+    const el = document.getElementById(id);
+    if (el) {
+      if (invalid) el.classList.add('invalid');
+      else el.classList.remove('invalid');
+    }
+  }
+
+  function validate() {
+    let valid = true;
+    const fields = [
+      { id: 'first-name', err: 'err-first', check: v => v.trim().length > 0 },
+      { id: 'last-name',  err: 'err-last',  check: v => v.trim().length > 0 },
+      { id: 'email',      err: 'err-email', check: v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) },
+      { id: 'phone',      err: 'err-phone', check: v => v.trim().length > 6 },
+      { id: 'brokerage',  err: 'err-brokerage', check: v => v.trim().length > 0 },
+      { id: 'deals',      err: 'err-deals', check: v => v !== '' },
+      { id: 'struggle',   err: 'err-struggle', check: v => v !== '' },
+    ];
+    fields.forEach(({ id, err, check }) => {
+      const el = document.getElementById(id);
+      const ok = el && check(el.value);
+      setInvalid(id, !ok);
+      showError(err, !ok);
+      if (!ok) valid = false;
+    });
+    return valid;
+  }
+
+  async function submitForm() {
+    if (!validate()) return;
+
+    const btn = document.getElementById('submit-btn');
+    btn.disabled = true;
+    btn.textContent = 'Submitting…';
+
+    const payload = {
+      firstName: document.getElementById('first-name').value.trim(),
+      lastName:  document.getElementById('last-name').value.trim(),
+      email:     document.getElementById('email').value.trim(),
+      phone:     document.getElementById('phone').value.trim(),
+      brokerage: document.getElementById('brokerage').value.trim(),
+      deals:     document.getElementById('deals').value,
+      struggle:  document.getElementById('struggle').value,
+      timestamp: new Date().toISOString()
+    };
+
+    try {
+      await fetch(SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      document.getElementById('form-view').style.display = 'none';
+      document.getElementById('success-view').style.display = 'block';
+    } catch (err) {
+      btn.disabled = false;
+      btn.innerHTML = 'Reserve My Seat <span class="btn-accent">→</span>';
+      alert('Something went wrong. Please try again.');
+    }
+  }
+</script>
+
+</body>
+</html>
