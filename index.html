@@ -1083,7 +1083,7 @@
     <div class="workshops-grid">
       <div class="workshop-card">
         <div class="workshop-card-top">
-          <div class="workshop-date">August 5, 2025 · 12PM – 4PM</div>
+          <div class="workshop-date">August 5, 2026 · 12PM – 4PM</div>
           <div class="workshop-title">AI for Real Estate Agents: Hands-On Workshop</div>
         </div>
         <div class="workshop-card-body">
@@ -1098,7 +1098,7 @@
       </div>
       <div class="workshop-card">
         <div class="workshop-card-top">
-          <div class="workshop-date">August 26, 2025 · 9AM – 1PM</div>
+          <div class="workshop-date">August 26, 2026 · 9AM – 1PM</div>
           <div class="workshop-title">Agent Workshop: Build a Business Worth Keeping</div>
         </div>
         <div class="workshop-card-body">
@@ -1572,10 +1572,10 @@ function submitGrowthDayForm() {
 <!-- HERO -->
 <div class="hero">
   <div class="hero-inner">
-    <span class="hero-eyebrow">Workshop · August 5, 2025</span>
+    <span class="hero-eyebrow">Workshop · August 5, 2026</span>
     <h1>AI for Real Estate<br>Agents: Hands-On</h1>
     <div class="hero-meta">
-      <div class="hero-meta-item"><div class="hero-meta-dot"></div><span><strong>August 5, 2025</strong> &nbsp;·&nbsp; 12:00 – 4:00 PM</span></div>
+      <div class="hero-meta-item"><div class="hero-meta-dot"></div><span><strong>August 5, 2026</strong> &nbsp;·&nbsp; 12:00 – 4:00 PM</span></div>
       <div class="hero-meta-item"><div class="hero-meta-dot"></div><span><strong>Venture X</strong> &nbsp;·&nbsp; Frederick, MD</span></div>
       <div class="hero-meta-item"><div class="hero-meta-dot"></div><span><strong>Free</strong> &nbsp;·&nbsp; Limited Seats</span></div>
     </div>
@@ -1660,7 +1660,7 @@ function submitGrowthDayForm() {
     <div class="details-grid">
       <div class="detail-box">
         <div class="detail-box-label">Date</div>
-        <div class="detail-box-value">August 5, 2025</div>
+        <div class="detail-box-value">August 5, 2026</div>
         <div class="detail-box-sub">Tuesday</div>
       </div>
       <div class="detail-box">
@@ -1742,10 +1742,10 @@ function submitAIForm() {
 <!-- HERO -->
 <div class="hero">
   <div class="hero-inner">
-    <span class="hero-eyebrow">Workshop · August 26, 2025</span>
+    <span class="hero-eyebrow">Workshop · August 26, 2026</span>
     <h1>Build a Business<br>Worth Keeping</h1>
     <div class="hero-meta">
-      <div class="hero-meta-item"><div class="hero-meta-dot"></div><span><strong>August 26, 2025</strong> &nbsp;·&nbsp; 9:00 AM – 1:00 PM</span></div>
+      <div class="hero-meta-item"><div class="hero-meta-dot"></div><span><strong>August 26, 2026</strong> &nbsp;·&nbsp; 9:00 AM – 1:00 PM</span></div>
       <div class="hero-meta-item"><div class="hero-meta-dot"></div><span><strong>Venture X</strong> &nbsp;·&nbsp; Frederick, MD</span></div>
       <div class="hero-meta-item"><div class="hero-meta-dot"></div><span><strong>Free</strong> &nbsp;·&nbsp; Limited Seats</span></div>
     </div>
@@ -1855,7 +1855,7 @@ function submitAIForm() {
     <div class="details-grid">
       <div class="detail-box">
         <div class="detail-box-label">Date</div>
-        <div class="detail-box-value">August 26, 2025</div>
+        <div class="detail-box-value">August 26, 2026</div>
         <div class="detail-box-sub">Tuesday</div>
       </div>
       <div class="detail-box">
@@ -2120,9 +2120,8 @@ function showPage(pageId) {
 document.addEventListener('DOMContentLoaded', function() {
 
   // ── AUTO-DISABLE Aug 26 signup buttons after the event date ──
-  var eventDate = new Date('2025-08-27T00:00:00'); // midnight after Aug 26
+  var eventDate = new Date('2026-08-27T00:00:00'); // midnight after Aug 26, 2026
   if (new Date() >= eventDate) {
-    // Find all links pointing to index-2.html and disable them
     document.querySelectorAll('a[href="index-2.html"]').forEach(function(btn) {
       btn.removeAttribute('href');
       btn.style.opacity = '0.45';
