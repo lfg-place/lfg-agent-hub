@@ -1119,7 +1119,7 @@
             <span>Free</span>
           </div>
           <p class="workshop-description">Most agents don't fail because they lack talent. They fail because they lack a clear system. This workshop is designed specifically for agents closing fewer than 20 transactions per year who want to create a more predictable, profitable, and sustainable real estate business.</p>
-          <a href="#" class="btn-primary learn-more-aug26">Learn More →</a>
+          <a href="https://lfg-agent-hub.onrender.com/workshop-aug26.html" class="btn-primary">Learn More →</a>
         </div>
       </div>
       <!-- Elite Agent Mastermind — invite only -->
@@ -1136,7 +1136,7 @@
             <span>25+ Sales/Yr</span>
           </div>
           <p class="workshop-description">A closed-door room for agents already closing 25+ transactions a year. No pitch, no fluff — just operators comparing notes on what's actually working at a high level. Attendance is by invitation only.</p>
-          <a href="#" class="btn-primary learn-more-mastermind" style="background:#0a0a0a;color:#d4af37;border:1px solid #d4af37;">Learn More →</a>
+          <a href="https://lfg-agent-hub.onrender.com/mastermind-elite.html" class="btn-primary" style="background:#0a0a0a;color:#d4af37;border:1px solid #d4af37;">Learn More →</a>
         </div>
       </div>
       <!-- Nov 11 Goal Setting Workshop card -->
@@ -1152,7 +1152,7 @@
             <span>Free</span>
           </div>
           <p class="workshop-description">Designed for agents doing 0–19 deals a year who are ready to stop reacting and start building. We'll walk through the exact goal-setting framework top producers use to plan a year that compounds — before it starts.</p>
-          <a href="#" class="btn-primary learn-more-goalsetting">Learn More →</a>
+          <a href="https://lfg-agent-hub.onrender.com/workshop-goalsetting.html" class="btn-primary">Learn More →</a>
         </div>
       </div>
 
@@ -2680,17 +2680,17 @@ document.addEventListener('DOMContentLoaded', function() {
   // Wire entire goal setting card click
   var cardGs = document.getElementById('card-goalsetting');
   if (cardGs) cardGs.addEventListener('click', function(e) {
-    if (e.target.tagName !== 'A') { showPage('page-goalsetting'); window.scrollTo(0,0); }
+    window.location.href = 'https://lfg-agent-hub.onrender.com/workshop-goalsetting.html';
   });
 
   // Make entire workshop cards clickable
   var cardAug26 = document.getElementById('card-aug26');
   if (cardAug26) cardAug26.addEventListener('click', function(e) {
-    if (e.target.tagName !== 'A') { showPage('page-aug26'); window.scrollTo(0,0); }
+    window.location.href = 'https://lfg-agent-hub.onrender.com/workshop-aug26.html';
   });
   var cardMastermind = document.getElementById('card-mastermind');
   if (cardMastermind) cardMastermind.addEventListener('click', function(e) {
-    if (e.target.tagName !== 'A') { showPage('page-mastermind'); window.scrollTo(0,0); }
+    window.location.href = 'https://lfg-agent-hub.onrender.com/mastermind-elite.html';
   });
   var mmBack = document.getElementById('mastermindBackBtn');
   if (mmBack) mmBack.addEventListener('click', function(e) { e.preventDefault(); showPage('page-hub'); window.scrollTo(0,0); });
