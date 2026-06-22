@@ -1562,11 +1562,11 @@ function submitFridayForm() {
   const btn = document.querySelector('#fridayForm button');
   btn.textContent = 'Sending...';
   btn.disabled = true;
-  fetch('https://script.google.com/macros/s/AKfycby4a8uvQX2TABK94hxiTSTcvAkWEWVV2SCJNGc2NAHgayBY2XvQts720m826iwpJh6d/exec', {
-    method: 'POST',
-    body: JSON.stringify({ sheet: 'Friday Agent Call w/ CS', name, email, phone }),
-    headers: { 'Content-Type': 'application/json' }
-  }).then(r => r.json()).then(data => {
+  const fd = new FormData();
+  fd.append('sheet', 'Friday Agent Call w/ CS');
+  fd.append('name', name); fd.append('email', email); fd.append('phone', phone);
+  fetch('https://script.google.com/macros/s/AKfycby4a8uvQX2TABK94hxiTSTcvAkWEWVV2SCJNGc2NAHgayBY2XvQts720m826iwpJh6d/exec', { method: 'POST', body: fd, mode: 'no-cors' })
+  .then(() => {
     document.getElementById('friday-name').style.display = 'none';
     document.getElementById('friday-email').style.display = 'none';
     document.getElementById('friday-phone').style.display = 'none';
@@ -1598,11 +1598,11 @@ function submitGrowthDayForm() {
   const btn = document.querySelector('#growthDayForm button');
   btn.textContent = 'Sending...';
   btn.disabled = true;
-  fetch('https://script.google.com/macros/s/AKfycby4a8uvQX2TABK94hxiTSTcvAkWEWVV2SCJNGc2NAHgayBY2XvQts720m826iwpJh6d/exec', {
-    method: 'POST',
-    body: JSON.stringify({ sheet: 'Growth Call w/ BB', name, email, phone }),
-    headers: { 'Content-Type': 'application/json' }
-  }).then(r => r.json()).then(data => {
+  const fd = new FormData();
+  fd.append('sheet', 'Growth Call w/ BB');
+  fd.append('name', name); fd.append('email', email); fd.append('phone', phone);
+  fetch('https://script.google.com/macros/s/AKfycby4a8uvQX2TABK94hxiTSTcvAkWEWVV2SCJNGc2NAHgayBY2XvQts720m826iwpJh6d/exec', { method: 'POST', body: fd, mode: 'no-cors' })
+  .then(() => {
     ['gd-name','gd-email','gd-phone'].forEach(id => document.getElementById(id).style.display = 'none');
     btn.style.display = 'none';
     document.getElementById('gd-success').style.display = 'block';
