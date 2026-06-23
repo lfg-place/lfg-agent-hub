@@ -1004,6 +1004,126 @@
     border-color: var(--gold) !important;
   }
 
+
+
+  /* ── GLOBAL MOBILE OVERRIDES (<=768px) ── */
+  @media (max-width: 768px) {
+
+    /* NAV */
+    nav { padding: 0 20px !important; }
+    .nav-back { font-size: 12px; }
+
+    /* HERO */
+    .hero { padding: 52px 20px 40px !important; }
+    h1 { font-size: clamp(30px, 8vw, 48px) !important; }
+    .hero-meta { flex-direction: column; gap: 10px; }
+
+    /* ALL SECTIONS */
+    section { padding: 48px 20px !important; }
+    .content-section { padding: 48px 20px !important; }
+    section[style*="padding:70px 40px"],
+    section[style*="padding:80px 40px"],
+    section[style*="padding:30px 40px"],
+    div[style*="padding:70px 40px"],
+    div[style*="padding:90px 40px"],
+    div[style*="padding:70px 40px 100px"] {
+      padding: 48px 20px !important;
+    }
+    section[style*="padding:30px 40px 90px"] {
+      padding: 20px 20px 60px !important;
+    }
+
+    /* FOOTER */
+    footer { padding: 32px 20px !important; }
+
+    /* MEET-US (3-col photo strip -> stack) */
+    #meet-us > div {
+      display: flex !important;
+      flex-direction: column !important;
+      min-height: 0 !important;
+    }
+    #meet-us > div > div:nth-child(1),
+    #meet-us > div > div:nth-child(3) {
+      display: none !important;
+    }
+    #meet-us > div > div:nth-child(2) {
+      padding: 48px 20px !important;
+      grid-column: unset !important;
+      grid-row: unset !important;
+    }
+
+    /* FRIDAY CALLS */
+    .friday-inner { grid-template-columns: 1fr !important; gap: 32px !important; }
+
+    /* WORKSHOPS GRID */
+    .workshops-grid { grid-template-columns: 1fr !important; }
+
+    /* RESOURCES GRID */
+    .resources-grid { grid-template-columns: 1fr !important; }
+
+    /* CATEGORIES */
+    .cat-grid { grid-template-columns: 1fr !important; }
+
+    /* GROWTH DAY */
+    .growth-inner { grid-template-columns: 1fr !important; gap: 36px !important; }
+    .growth-speaker-card { flex-direction: column !important; }
+    .growth-speaker-photo { width: 100% !important; min-height: 160px !important; }
+
+    /* SPEAKER CARDS */
+    .speaker-card { flex-direction: column !important; }
+    .speaker-photo { width: 100% !important; min-height: 160px !important; }
+
+    /* GUEST SPEAKER GRID (280px 1fr -> block) */
+    div[style*="grid-template-columns:280px 1fr"] {
+      display: block !important;
+    }
+    div[style*="grid-template-columns:280px 1fr"] > div:first-child {
+      width: 100% !important;
+      height: 300px !important;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 28px;
+    }
+
+    /* ALL 2-COL GRIDS -> 1-COL */
+    div[style*="grid-template-columns:1fr 1fr"],
+    div[style*="grid-template-columns:1.2fr 1fr"] {
+      grid-template-columns: 1fr !important;
+    }
+
+    /* LEARN GRID */
+    .learn-grid { grid-template-columns: 1fr !important; }
+
+    /* EVENT DETAILS ROW */
+    div[style*="justify-content:center;gap:48px"] {
+      gap: 20px !important;
+      flex-wrap: wrap !important;
+    }
+
+    /* CONTAINER WIDTHS */
+    div[style*="max-width:1200px"],
+    div[style*="max-width:1100px"],
+    div[style*="max-width:1000px"],
+    div[style*="max-width:980px"],
+    div[style*="max-width:760px"],
+    div[style*="max-width:860px"],
+    div[style*="max-width:640px"],
+    div[style*="max-width:600px"],
+    div[style*="max-width:480px"] {
+      max-width: 100% !important;
+    }
+
+    /* TYPOGRAPHY */
+    .section-title { font-size: clamp(22px, 6vw, 34px) !important; }
+    h2[style*="font-size:32px"] { font-size: 24px !important; }
+    h3[style*="font-size:26px"] { font-size: 20px !important; }
+
+    /* REGISTER / CTA */
+    .register-section { padding: 52px 20px !important; }
+    .register-form { max-width: 100% !important; }
+    .register-form input,
+    .growth-form input { font-size: 16px; }
+  }
 </style>
 </head>
 <body>
