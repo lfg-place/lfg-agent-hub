@@ -605,8 +605,15 @@
 
   /* RESPONSIVE */
   @media (max-width: 768px) {
-    nav { padding: 0 20px; }
+    /* GUEST SPEAKER GRID (280px 1fr -> block) */
+    div[style*="grid-template-columns:280px 1fr"] { display: block !important; }
+    div[style*="grid-template-columns:280px 1fr"] > div:first-child {
+      width: 100% !important; height: 300px !important;
+      border-radius: 10px; overflow: hidden; margin-bottom: 28px;
+    }
+    nav { padding: 0 16px; }
     .nav-links { display: none; }
+    .nav-logo-sub { font-size: 9px; letter-spacing: 0.01em; }
     section { padding: 60px 20px; }
     .friday-inner { grid-template-columns: 1fr; gap: 48px; }
     .hero { padding: 48px 20px 36px; }
@@ -647,6 +654,17 @@
     font-family: 'Playfair Display', serif;
     font-size: 13px; color: var(--white); font-weight: 700;
     letter-spacing: 0.01em; line-height: 1.3;
+  }
+
+  .nav-logo-sub {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 0.03em;
+    color: rgba(255,255,255,0.62);
+    margin-top: 2px;
+    line-height: 1.25;
   }
   .nav-back {
     color: #ffffff; text-decoration: none;
@@ -1007,7 +1025,7 @@
 <nav>
   <a href="https://lfg-agent-hub.onrender.com" class="nav-logo">
     <div class="nav-logo-mark" style="background:none;padding:0;border-radius:6px;overflow:hidden;"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAIAAAC2BqGFAAABCGlDQ1BJQ0MgUHJvZmlsZQAAeJxjYGA8wQAELAYMDLl5JUVB7k4KEZFRCuwPGBiBEAwSk4sLGHADoKpv1yBqL+viUYcLcKakFicD6Q9ArFIEtBxopAiQLZIOYWuA2EkQtg2IXV5SUAJkB4DYRSFBzkB2CpCtkY7ETkJiJxcUgdT3ANk2uTmlyQh3M/Ck5oUGA2kOIJZhKGYIYnBncAL5H6IkfxEDg8VXBgbmCQixpJkMDNtbGRgkbiHEVBYwMPC3MDBsO48QQ4RJQWJRIliIBYiZ0tIYGD4tZ2DgjWRgEL7AwMAVDQsIHG5TALvNnSEfCNMZchhSgSKeDHkMyQx6QJYRgwGDIYMZAKbWPz9HbOBQAAAJh0lEQVR4nO2ca0iT3x/An8fbyDZT0bwbXiodjUotvJRZuomZipYtNc3NucxS0IiwQMReRGRJCZqmtkTwTpQkJbYko9DwnpnLS9q6eCm1uTmd234vBvGnv5mbOzvP7Pm8HM855/v9+Myz73POcxAEBwcHBwcHBwcHBwcHBwcHQRA9PT2g/esA7V0rIJPJt27dotPpsANZp6Ao6uPjw+FwZmdn5XJ5Wloa0OHAfl+wCYFAoFKpZ86c8ff3JxAIig+lUinQQf8t0cbGxuHh4Ww229PTU8ND/yuibWxsYmJiGAyGi4sLlADWv2gymcxgMKKiomxsbCCGsZ5Fe3t7JyYmhoeHb9q0CXYs61E0gUCg0WhsNptKpf6a66CzrkSbmJiEhYWx2WwvLy/YsfzOOhFtY2MTHR3NYDBcXV1hx7I8Wi/a1dWVwWDExMRYW1vDjmUltFi0l5eXYq4zNjaGHcvf0T7Rirru9OnTNBrNwMAAdjirRZtEGxkZKeo6b29vtXeOoqja+/xftEO0jY1NVFQUg8Egk8mAhgD9rAPruLi4XLt27dOnT3JgDA8PZ2VlWVlZwc4VEl5eXqWlpdPT0+AUd3R0nD171tzcHHauMDAwMDh8+PCjR4/EYjEgv0tLS1wu9/jx4xs3boSdLgw2bdoUFxf38uVLQH7lcrlQKKypqQkICAC9cIVRrK2tz58/39fXB07xxMREQUHB7t27YecKCY3NdU5OTrBzhYSnp2dJSQnQua6zs/Nfn+sePnw4Pz8PyK9UKuVyuSdOnCASibDThURISEhLSwsgv3K5fG5urrq6OiAgQFdXF3aukEBRNDMzc2lpCZDiqampgoICNzc32InChsViAVI8PDycnZ2twlxHJBKdnZ1dXV03b94MImUIWFpajo2NqV1xd3f3uXPnLCwslI2HTCbn5OT09fX9/PlTKBTy+fy6urrAwEAQuWsUJpOpRr+KuY5Op6tQ1+3bt6+srEyxNek3JBLJ9evXtei56zIUFhaqRbFIJKqtraVSqcrWdQQCISQk5PHjxwsLCysPcfXqVUASNEFtbe0aFU9OTt65c8fDw0PZoY2NjRkMxqtXr1Y5kFgs9vHxASFBE6zljh4ZGcnOznZ2dlZ2UFtb2wsXLvT39ys7YmlpKQgJmoDBYKiguKurKzU1VYWfBIqyns/nqzCoXC5/+/bthg0bQHgAjpWV1eqfZkil0ubm5qioKBXqOkVZPzMzo5piBWNjY1pctScmJv41Q5FIVFdXR6PRlJ3r9PX1g4KC1FXWDw4OYmELmYqgKJqVlSWRSJbNTTHXubu7K9utkZFRbGysesv6hoYG0Au1wAkLC3vx4sWv+04mk3348OHKlStbt25VtitLS8u0tLSenh41KlZw6tQpELlr+k+nr69PJpOdnZ0JBAKfz+/t7Z2enlaqh23btsXHx588edLOzk7t4TU3NwcHB4tEIrX3rE14eHgUFRVNTU2p/S5W0NnZqcJ3a/2gp6cXGBhYV1cnEokAKZ6ens7Pz/93dxwQicSoqKjm5mapVApI8efPn3NycsDty8E6FhYWKSkpXV1dgPzK5fL+/v6LFy/a2trCzhUSTk5O2dnZIyMj4BS3trYymUwTExPYuULCzc0tPz9/cnISkN/FxcWGhobQ0FDsvG+hUXR1df39/WtqaoRCISDFAoGgvLx8//79Wl+JqIahoSGdTm9qavpTxbh2vn79mpubS6FQYOcKCXNz8+Tk5Pb2dkB+5XI5j8e7dOnSli1bYOcKCQcHh8zMzMHBQXCK29ra2Gy2qakp7FwhsWvXrtu3b09MTADyK5FIGhsbIyIiVHiaTKFQtP7fi46OzoEDByoqKgQCASDFc3NzFRUVfn5+OjpKHz/i6el579692dnZ9PR0EOlrAkNDw6NHjz59+hTcXDc+Pp6Xl7dz505lY1Ms19bX1/9ark1NTQUhASympqZsNvvNmzeA/Mrl8qGhoczMTAcHB2VjMzExYTKZr1+//q1DLRNtZmZ2+fJlHo8HTnFHR0dycrKZmZmysdnb22dkZLx//37ZbrVMdGRkJCC/Uqn02bNndDpdhbVECoWSm5v75cuXFfoHLVrNbxiAKL2EQmFDQ0NRURGXy5XJZKtvqKOj4+vrm5iYGBISQiKR1B6YUmD6VY7v379XV1cXFxd3dHQo1dDQ0DAoKCgpKcnPzw8jr6tgIoj/5+PHj+Xl5RwOZ2hoSKmGZmZmkZGRCQkJKiz1AgVzont6eoqLi6urq8fHx5Vq6OjoGBcXFxsb6+joCCi2tYAV0TKZrKWlpbCwsL6+fm5uTqm27u7uCQkJx44dw/LGF/iixWLxkydPCgoKnj9/LpFIVt9QT0/v4MGDSUlJQUFB2N/EBVP09PR0bW1tcXFxW1ubUg1JJFJoaCiLxfL19VWh7IYCNNFFRUU3btzg8XhKtbK2tqbT6Uwmc8eOHYACAwQ00ffv31fK8vbt2+Pj46Ojo+3t7cFFBQ5oole/cOfl5cVisSIiIrTiSJ8/AX8y/BMGBgaK4+toNNo6WE7FomhdXV06nZ6SkqL5o1rBgTnRRCIxLy8vPj4ediBqBlu/jVAUzcnJWX+WEayJplKpLBYLdhRAwJZoJpOpxvflJRJJd3e3UtUmODAkmkQiqeutecUxB1QqlcFgLC0tqaXPNYKhyZBEIhkZGa2xk/Hx8ZqampKSkq6uLgRBKBQKRraBYUi0WCwWi8UqN+fxeGVlZeXl5aOjo78+xIhlBFOiZ2ZmBgYGVNjE1draevfu3QcPHvz48QNEYGoBQ6JlMlllZSWNRlvl9QsLC01NTYWFhY2NjQsLC0BjWzsYmgwRBKmqquJyuX+9bGZmprS09NChQ0eOHFFsgtFAbGsEQ3c0giAikYjFYlVVVe3Zs2fZC0ZHRysqKjgczsDAgIZjWyPYEo0gyMjISHBwcEZGRnR09K/TZWQyWW9vL4fDqays/PbtG9wIVQNzohEEmZycTE9Pv3nz5t69e+3s7BYWFt69e9fe3i4UCmGHpjpYFK2Az+fz+XzYUagNbE2G6xhctIbARWsIXLSGwEVrCFy0hsBFawhctIbARWsIXLSGwEVrCDWLXv0mWs0sMqEousp3WEBv/1XzQyWBQKA4PGbly1AUnZ+fV+/Qy7K4uDg4OEggEFYOCUXRmZkZoJGo+bYyMDAgEol/FY0giEAg0MBGAF1dXRKJ9NdvD4qiQqFQK1ZqcHBwcHBwcHBwcHBwcHBwcHBwcHBwcFbiP3O1nUUN3nTwAAAAAElFTkSuQmCC" style="width:100%;height:100%;object-fit:cover;display:block;" /></div>
-    <span class="nav-logo-text">Live Frederick Group + PLACE</span>
+    <span class="nav-logo-text">Live Frederick Group<span class="nav-logo-sub">of Keller Williams Realty Centre + PLACE</span></span>
   </a>
   <ul class="nav-links">
     <li><a href="https://lfg-agent-hub.onrender.com/#meet-us">About Us</a></li>
@@ -1056,12 +1074,15 @@
       <div>
         <div style="font-size:10px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#d4af37;margin-bottom:8px;">Guest Speaker</div>
         <h3 style="font-family:'Playfair Display',serif;font-size:26px;color:#ffffff;margin-bottom:6px;">Brian Gubernick</h3>
-        <div style="font-size:13px;color:#9ca3af;font-weight:600;margin-bottom:20px;">20+ Year Real Estate Veteran · Team Leader · Coach · Podcast Host</div>
+        <div style="font-size:13px;color:#9ca3af;font-weight:600;margin-bottom:20px;">Owner of <a href="https://metrixmasterminds.com/about/" target="_blank" rel="noopener noreferrer" style="color:#d4af37;text-decoration:none;border-bottom:1px solid rgba(212,175,55,0.45);">Metrix Masterminds</a> &middot; Chief Real Estate Officer at PLACE &middot; Keynote Speaker &middot; Endurance Athlete &middot; Podcast Host</div>
         <p style="font-size:14.5px;color:#d1d5db;line-height:1.85;margin-bottom:16px;">
-          Brian Gubernick has worn just about every hat in this business — agent, team leader, brokerage partner, investor, and entrepreneur. He built Homehelper Consultants into one of the top 250 producing teams in the country (as ranked by RealTrends/Wall Street Journal), expanded it across multiple markets, and has personally coached thousands of sales professionals on business growth, leadership, and performance.
+          Brian Gubernick is a real estate entrepreneur, endurance athlete, keynote speaker, girl dad, and host of the <em>No Days Off</em> podcast. Over the past 15+ years, he has worn nearly every hat in the real estate industry &mdash; agent, investor, sales team owner, coach, brokerage leader, and corporate executive &mdash; building and scaling businesses that have impacted thousands nationwide. He is currently the Chief Real Estate Officer at PLACE, an Advisor to Homeward, and a partner in multiple real estate-related ventures, including property management, title, and investment firms.
         </p>
         <p style="font-size:14.5px;color:#d1d5db;line-height:1.85;margin-bottom:16px;">
-          These days, Brian channels that experience into <em>No Days Off</em> — a daily podcast built around the idea that every day is an opportunity to get better in business, relationships, and life. He also co-founded Metrix Masterminds, where he's spent nearly a decade hosting world-class speakers and facilitating high-level conversations among top producers.
+          Brian began his journey in 2007 with the launch of Homehelper Consultants (HhC), a nationally recognized team within Keller Williams, earning accolades such as the 2014 Keller Williams Innovator Award and recognition from Inman in 2017. That same year, he founded Metrix, which has since mentored hundreds of real estate leaders. In Spring 2025, he delivered a powerful TEDx talk on the urgency of living intentionally, challenging others to embrace purpose, presence, and bold action.
+        </p>
+        <p style="font-size:14.5px;color:#d1d5db;line-height:1.85;margin-bottom:16px;">
+          A lifelong competitor, Brian channels his passion for growth through endurance sports &mdash; having completed marathons, ultramarathons, and 50K races &mdash; as a way to cultivate mental resilience and personal transformation.
         </p>
         <p style="font-size:14.5px;color:#d1d5db;line-height:1.85;margin-bottom:16px;">
           At this mastermind, Brian will be diving into Benjamin Hardy's <em>The Science of Scaling</em> — breaking down what those frameworks actually mean for how serious agents and team leaders build, grow, and operate at a higher level.
@@ -1069,6 +1090,13 @@
         <p style="font-size:14.5px;color:#d1d5db;line-height:1.85;">
           Brian brings a rare combination: serious production credentials and a genuine passion for elevating the people around him. We're excited to have him in the room.
         </p>
+        <div style="margin-top:30px;">
+          <div style="font-size:10px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#d4af37;margin-bottom:12px;">Watch His TEDx Talk</div>
+          <div style="position:relative;width:100%;padding-bottom:56.25%;height:0;border-radius:10px;overflow:hidden;background:#000;">
+            <iframe src="https://www.youtube-nocookie.com/embed/RiiTLvLmgsM" title="Time is Finite | Brian Gubernick | TEDxGrandCanyonUniversity" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div style="font-size:12px;color:#9ca3af;margin-top:10px;">&ldquo;Time is Finite&rdquo; &middot; TEDxGrandCanyonUniversity</div>
+        </div>
       </div>
     </div>
   </div>
@@ -1232,7 +1260,7 @@
 </section>
 
 <footer>
-  <p>© 2025 Live Frederick Group + PLACE &nbsp;|&nbsp; <a href="#" href="https://lfg-agent-hub.onrender.com">← Back to Agent Hub</a></p>
+  <p>© 2026 Live Frederick Group + PLACE &nbsp;|&nbsp; <a href="#" href="https://lfg-agent-hub.onrender.com">← Back to Agent Hub</a></p>
 </footer>
 </div>
 
