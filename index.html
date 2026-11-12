@@ -1315,10 +1315,10 @@
           <a href="https://lfg-agent-hub.onrender.com/mastermind-elite.html" class="btn-primary" style="background:#0a0a0a;color:#d4af37;border:1px solid #d4af37;">Learn More →</a>
         </div>
       </div>
-      <!-- Nov 11 Goal Setting Workshop card -->
+      <!-- Dec 16 Goal Setting Workshop card -->
       <div class="workshop-card clickable" id="card-goalsetting">
         <div class="workshop-card-top">
-          <div class="workshop-date">November 11, 2026 · Wednesday</div>
+          <div class="workshop-date">December 16, 2026 · Wednesday<br>9:00 AM – 1:00 PM</div>
           <div class="workshop-title">Build the Year Before It Happens — A Goal-Setting Workshop</div>
         </div>
         <div class="workshop-card-body">
@@ -2174,7 +2174,7 @@ function submitGoalSettingForm() {
   formData.append('email', email);
   formData.append('phone', document.getElementById('gs-phone').value.trim());
   formData.append('_replyto', email);
-  formData.append('_subject', 'New Registration — Build the Year Before It Happens (Nov 11)');
+  formData.append('_subject', 'New Registration — Build the Year Before It Happens (Dec 16)');
   fetch('https://formspree.io/f/xpqeeyqv', { method:'POST', body:formData, headers:{'Accept':'application/json'} })
   .then(function(r) {
     if (r.ok) {
@@ -2253,15 +2253,16 @@ function submitAug26Form() {
 <!-- HERO -->
 <div class="hero">
   <div class="hero-inner">
-    <span class="hero-eyebrow">Free Workshop · November 11, 2026</span>
+    <span class="hero-eyebrow">Free Workshop · December 16, 2026</span>
     <h1>Build the Year<br>Before It Happens</h1>
     <p class="hero-sub">A Goal-Setting Workshop for Agents Ready to Stop Reacting and Start Building.</p>
     <div class="hero-meta">
-      <div class="hero-meta-item"><div class="hero-meta-dot"></div><span><strong>November 11, 2026</strong> &nbsp;·&nbsp; Wednesday</span></div>
+      <div class="hero-meta-item"><div class="hero-meta-dot"></div><span><strong>December 16, 2026</strong> &nbsp;·&nbsp; Wednesday</span></div>
+      <div class="hero-meta-item"><div class="hero-meta-dot"></div><span><strong>9:00 AM – 1:00 PM</strong></span></div>
       <div class="hero-meta-item"><div class="hero-meta-dot"></div><span><strong>Venture X</strong> &nbsp;·&nbsp; Frederick, MD</span></div>
       <div class="hero-meta-item"><div class="hero-meta-dot"></div><span><strong>Free</strong> &nbsp;·&nbsp; Limited Seats</span></div>
     </div>
-    <span class="btn-primary" style="display:inline-block;margin-top:28px;opacity:0.55;cursor:not-allowed;pointer-events:none;">Registration Coming Soon</span>
+    <a href="workshop-goalsetting-rsvp.html" class="btn-primary" style="display:inline-block;margin-top:28px;text-decoration:none;">Reserve Your Seat →</a>
   </div>
 </div>
 
@@ -2380,8 +2381,13 @@ function submitAug26Form() {
     <div class="detail-boxes">
       <div class="detail-box">
         <div class="detail-box-label">Date</div>
-        <div class="detail-box-value">November 11, 2026</div>
+        <div class="detail-box-value">December 16, 2026</div>
         <div class="detail-box-sub">Wednesday</div>
+      </div>
+      <div class="detail-box">
+        <div class="detail-box-label">Time</div>
+        <div class="detail-box-value">9:00 AM – 1:00 PM</div>
+        <div class="detail-box-sub">Half day</div>
       </div>
       <div class="detail-box">
         <div class="detail-box-label">Location</div>
@@ -2407,8 +2413,8 @@ function submitAug26Form() {
   <div class="register-inner">
     <div class="section-label">Save Your Spot</div>
     <h2 class="section-title">Ready to Build a Business<br>Worth Owning?</h2>
-    <p class="body-text" style="margin-bottom:32px;">Registration for this event opens soon. Check back here or follow us on social to be the first to know when seats are available.</p>
-    <span class="btn-primary" style="display:inline-block;opacity:0.55;cursor:not-allowed;pointer-events:none;padding:16px 32px;">Registration Coming Soon</span>
+    <p class="body-text" style="margin-bottom:32px;">Seats are limited. Register now and we'll send you a confirmation with everything you need before the event.</p>
+    <a href="workshop-goalsetting-rsvp.html" class="btn-primary" style="display:inline-block;text-decoration:none;padding:16px 32px;">Reserve Your Seat →</a>
   </div>
 </div>
 
