@@ -1219,7 +1219,7 @@ function submitGoalSettingForm() {
   formData.append('email', email);
   formData.append('phone', document.getElementById('gs-phone').value.trim());
   formData.append('_replyto', email);
-  formData.append('_subject', 'New Registration — Build the Year Before It Happens (Nov 11)');
+  formData.append('_subject', 'New Registration — Build the Year Before It Happens (Dec 16)');
   fetch('https://formspree.io/f/xpqeeyqv', { method:'POST', body:formData, headers:{'Accept':'application/json'} })
   .then(function(r) {
     if (r.ok) {
