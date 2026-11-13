@@ -1731,6 +1731,8 @@
 </footer>
 
 <script>
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwyIDew7dV0boaDPQ5RER6yFO20FUJ7w-ou37qTEvjSgcut4E8xz-7cMcKVMR7ELGpSaQ/exec";
+
 function submitFridayForm() {
   const name = document.getElementById('friday-name').value.trim();
   const email = document.getElementById('friday-email').value.trim();
@@ -1739,10 +1741,18 @@ function submitFridayForm() {
   const btn = document.querySelector('#fridayForm button');
   btn.textContent = 'Sending...';
   btn.disabled = true;
-  const fd = new FormData();
-  fd.append('sheet', 'Friday Agent Call w/ CS');
-  fd.append('name', name); fd.append('email', email); fd.append('phone', phone);
-  fetch('https://script.google.com/macros/s/AKfycby4a8uvQX2TABK94hxiTSTcvAkWEWVV2SCJNGc2NAHgayBY2XvQts720m826iwpJh6d/exec', { method: 'POST', body: fd, mode: 'no-cors' })
+  const payload = {
+    event: 'Friday Agent Call w/ CS',
+    name: name,
+    email: email,
+    phone: phone
+  };
+  fetch(SCRIPT_URL, {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+    body: JSON.stringify(payload)
+  })
   .then(() => {
     document.getElementById('friday-name').style.display = 'none';
     document.getElementById('friday-email').style.display = 'none';
@@ -1775,10 +1785,18 @@ function submitGrowthDayForm() {
   const btn = document.querySelector('#growthDayForm button');
   btn.textContent = 'Sending...';
   btn.disabled = true;
-  const fd = new FormData();
-  fd.append('sheet', 'Growth Call w/ BB');
-  fd.append('name', name); fd.append('email', email); fd.append('phone', phone);
-  fetch('https://script.google.com/macros/s/AKfycby4a8uvQX2TABK94hxiTSTcvAkWEWVV2SCJNGc2NAHgayBY2XvQts720m826iwpJh6d/exec', { method: 'POST', body: fd, mode: 'no-cors' })
+  const payload = {
+    event: 'Growth Call w/ BB',
+    name: name,
+    email: email,
+    phone: phone
+  };
+  fetch(SCRIPT_URL, {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+    body: JSON.stringify(payload)
+  })
   .then(() => {
     ['gd-name','gd-email','gd-phone'].forEach(id => document.getElementById(id).style.display = 'none');
     btn.style.display = 'none';
