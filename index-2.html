@@ -440,8 +440,9 @@
 </div>
 
 <script>
-  // ── Replace this URL with your Google Apps Script Web App URL ──
-  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxUMQC2Tea6ULTSmfP7gGRxqQl5weSIiMuaDGoHhvnJRVBgQx3dH6P-3ppAGDauCr3J/exec";
+  // Shared registrations sheet. The 'event' field is the page headline plus the date shown above the form.
+  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwyIDew7dV0boaDPQ5RER6yFO20FUJ7w-ou37qTEvjSgcut4E8xz-7cMcKVMR7ELGpSaQ/exec";
+  const EVENT_NAME = "Agent Training — August 26, 2026";
 
   function showError(id, show) {
     const el = document.getElementById(id);
@@ -485,6 +486,7 @@
     btn.textContent = 'Submitting…';
 
     const payload = {
+      event:     EVENT_NAME,
       firstName: document.getElementById('first-name').value.trim(),
       lastName:  document.getElementById('last-name').value.trim(),
       email:     document.getElementById('email').value.trim(),
@@ -499,7 +501,7 @@
       await fetch(SCRIPT_URL, {
         method: 'POST',
         mode: 'no-cors',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
         body: JSON.stringify(payload)
       });
       document.getElementById('form-view').style.display = 'none';
