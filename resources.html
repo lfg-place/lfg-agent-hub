@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
+  <title>Resources | LFG Agent Hub</title>
+  <meta name="description" content="Public resources for Live Frederick Group at Keller Williams Realty Centre, powered by PLACE.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #000000;
+      --navy-mid: #111111;
+      --navy-light: #1a1a1a;
+      --gold: #ffffff;
+      --gold-light: #e0e0e0;
+      --white: #ffffff;
+      --off-white: #f2f2f2;
+      --gray: #9ca3af;
+      --gray-light: #e5e7eb;
+      --text: #1f2937;
+      --muted: #6b7280;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--off-white);
+      color: var(--text);
+    }
+
+    .skip {
+      position: absolute;
+      left: 12px;
+      top: -40px;
+      background: var(--white);
+      color: var(--navy);
+      padding: 8px 12px;
+      z-index: 200;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+    .skip:focus { top: 12px; }
+
+    nav {
+      background: var(--navy);
+      padding: 0 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      min-height: 82px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      min-width: 0;
+    }
+    .nav-logo-mark {
+      width: 36px;
+      height: 36px;
+      border-radius: 6px;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .nav-logo-mark img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .nav-logo-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 13px;
+      color: var(--white);
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      line-height: 1.3;
+    }
+    .nav-logo-sub {
+      display: block;
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.03em;
+      color: rgba(255,255,255,0.62);
+      margin-top: 2px;
+      line-height: 1.25;
+    }
+    .nav-back {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      letter-spacing: 0.04em;
+      border: 1.5px solid rgba(255,255,255,0.3);
+      padding: 9px 18px;
+      border-radius: 4px;
+      white-space: nowrap;
+      transition: color 0.2s, border-color 0.2s, background 0.2s;
+    }
+    .nav-back:hover { color: var(--navy); background: #ffffff; border-color: #ffffff; }
+
+    .hero {
+      background: var(--navy);
+      padding: 64px 40px 52px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 60% 40%, rgba(255,255,255,0.08) 0%, transparent 70%);
+    }
+    .hero-inner { position: relative; max-width: 760px; margin: 0 auto; }
+    .hero-eyebrow {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 18px;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(38px, 6vw, 64px);
+      color: var(--white);
+      line-height: 1.1;
+      margin-bottom: 18px;
+    }
+    .hero p {
+      color: var(--gray);
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    .tool-bar {
+      position: sticky;
+      top: 82px;
+      z-index: 90;
+      background: rgba(242,242,242,0.96);
+      border-bottom: 1px solid var(--gray-light);
+      padding: 18px 40px 16px;
+    }
+    .tool-inner { max-width: 1100px; margin: 0 auto; }
+    .search {
+      width: 100%;
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      padding: 14px 16px;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+      background: var(--white);
+      color: var(--text);
+      outline: none;
+    }
+    .search:focus { border-color: var(--navy); }
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+    .chip {
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      border: 1px solid #d1d5db;
+      background: var(--white);
+      color: #374151;
+      border-radius: 999px;
+      padding: 8px 14px;
+      cursor: pointer;
+    }
+    .chip:hover { border-color: var(--navy); }
+    .chip[aria-pressed="true"] {
+      background: var(--navy);
+      color: var(--white);
+      border-color: var(--navy);
+    }
+    .result-count {
+      margin-top: 12px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    section { padding: 42px 40px 8px; scroll-margin-top: 220px; }
+    .section-wrap { max-width: 1100px; margin: 0 auto; }
+    .section-header { margin-bottom: 22px; }
+    .section-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 4vw, 40px);
+      color: var(--navy);
+      margin-bottom: 8px;
+      line-height: 1.15;
+    }
+    .section-subtitle {
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.6;
+      max-width: 680px;
+    }
+
+    .resources-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 24px;
+    }
+    .resource-card {
+      background: var(--white);
+      border: 1px solid var(--gray-light);
+      border-radius: 8px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      text-decoration: none;
+      color: inherit;
+      min-height: 220px;
+      transition: box-shadow 0.2s, border-color 0.2s;
+    }
+    a.resource-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.08);
+      border-color: #111;
+    }
+    a.resource-card:focus-visible {
+      outline: 2px solid #111;
+      outline-offset: 3px;
+    }
+    .resource-type {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #4b5563;
+    }
+    .resource-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      color: var(--navy);
+      line-height: 1.25;
+      font-weight: 700;
+    }
+    .resource-desc {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.6;
+      flex: 1;
+    }
+    .resource-download {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--navy);
+      border: 1.5px solid var(--navy);
+      padding: 9px 18px;
+      border-radius: 4px;
+      align-self: flex-start;
+      margin-top: 4px;
+    }
+    a.resource-card:hover .resource-download {
+      background: var(--navy);
+      color: var(--white);
+    }
+    .resource-soon {
+      border: 1.5px dashed var(--gray-light);
+      background: transparent;
+      min-height: 220px;
+    }
+    .resource-download.is-disabled {
+      color: #9ca3af;
+      border-color: #d1d5db;
+    }
+
+    .empty {
+      display: none;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 28px 40px 10px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+    .empty.visible { display: block; }
+
+    footer {
+      background: var(--navy);
+      padding: 48px 40px;
+      text-align: center;
+      margin-top: 48px;
+    }
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      color: var(--white);
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .footer-sub {
+      font-size: 12px;
+      color: var(--gray);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      list-style: none;
+      flex-wrap: wrap;
+      margin-bottom: 28px;
+    }
+    .footer-links a {
+      color: var(--gray);
+      text-decoration: none;
+      font-size: 13px;
+    }
+    .footer-links a:hover { color: var(--white); }
+    .footer-copy {
+      font-size: 12px;
+      color: #4b5563;
+      max-width: 720px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 768px) {
+      nav { padding: 0 16px; }
+      .nav-logo-sub { font-size: 9px; }
+      .nav-back { font-size: 13px; padding: 8px 12px; }
+      .hero { padding: 48px 20px 40px; }
+      .hero p { font-size: 16px; }
+      .tool-bar { position: static; top: auto; padding: 14px 16px 12px; }
+      section { padding: 32px 16px 4px; }
+      .resources-grid { grid-template-columns: 1fr; }
+      footer { padding: 36px 20px; }
+      .empty { padding: 20px 16px 8px; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#search">Skip to search</a>
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-mark"><img src="data:image/png;base64,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" alt=""></div>
+      <span class="nav-logo-text">Live Frederick Group<span class="nav-logo-sub">at Keller Williams Realty Centre, powered by PLACE</span></span>
+    </a>
+    <a href="index.html" class="nav-back">← Back to Hub</a>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="hero-eyebrow">Agent Resources</div>
+      <h1>Resources</h1>
+      <p>Public pages for Live Frederick Group at Keller Williams Realty Centre, powered by PLACE. Each link opens in a new tab. Login-only tools are not included.</p>
+    </div>
+  </header>
+
+  <div class="tool-bar">
+    <div class="tool-inner">
+      <input id="search" class="search" type="search" placeholder="Search by name, topic, or office" aria-label="Search resources" autocomplete="off">
+      <div class="chips" role="group" aria-label="Filter by category">
+        <button type="button" class="chip" data-chip="all" aria-pressed="true">All</button>
+        <button type="button" class="chip" data-chip="grow" aria-pressed="false">Grow Your Career</button>
+        <button type="button" class="chip" data-chip="join" aria-pressed="false">Join Us</button>
+        <button type="button" class="chip" data-chip="toolbox" aria-pressed="false">Toolbox</button>
+        <button type="button" class="chip" data-chip="market" aria-pressed="false">Market Data</button>
+        <button type="button" class="chip" data-chip="licensing" aria-pressed="false">Associations</button>
+        <button type="button" class="chip" data-chip="government" aria-pressed="false">Government</button>
+        <button type="button" class="chip" data-chip="homebuyer" aria-pressed="false">Homebuyer</button>
+        <button type="button" class="chip" data-chip="vendors" aria-pressed="false">Vendors</button>
+      </div>
+      <p class="result-count" id="resultCount" aria-live="polite"></p>
+    </div>
+  </div>
+
+  <p class="empty" id="emptyState">Nothing matches that search. Try a broader word, or choose All.</p>
+
+  <main>
+    
+    <section id="grow" data-section>
+      <div class="section-wrap">
+        <div class="section-header">
+          <div class="section-label">PLACE</div>
+          <h2 class="section-title">Grow Your Career</h2>
+          <p class="section-subtitle">Public PLACE pages on benefits, technology, communities, and two Built HOW episodes.</p>
+        </div>
+        <div class="resources-grid">
+      <a class="resource-card" href="https://place.com/real-estate-agent-benefits/" target="_blank" rel="noopener noreferrer" data-cat="grow" data-search="place agent benefits high-level overview of health care, stock, and revenue share for agents. place">
+        <div class="resource-type">PLACE</div>
+        <h3 class="resource-title">PLACE Agent Benefits</h3>
+        <p class="resource-desc">High-level overview of health care, stock, and revenue share for agents.</p>
+        <span class="resource-download">Open <span aria-hidden="true">↗</span></span>
+      </a>
+
+      <a class="resource-card" href="https://place.com/real-estate-agent-income/" target="_blank" rel="noopener noreferrer" data-cat="grow" data-search="place agent income how place compensation tiers work. place">
+        <div class="resource-type">PLACE</div>
+        <h3 class="resource-title">PLACE Agent Income</h3>
+        <p class="resource-desc">How PLACE compensation tiers work.</p>
+        <span class="resource-download">Open <span aria-hidden="true">↗</span></span>
+      </a>
+
+      <a class="resource-card" href="https://place.com/real-estate-technology/" target="_blank" rel="noopener noreferrer" data-cat="grow" data-search="place technology public overview of the tech stack, including the crm, ai follow-up, and data tools. place">
+        <div class="resource-type">PLACE</div>
+        <h3 class="resource-title">PLACE Technology</h3>
+        <p class="resource-desc">Public overview of the tech stack, including the CRM, AI follow-up, and data tools.</p>
+        <span class="resource-download">Open <span aria-hidden="true">↗</span></span>
+      </a>
+
+      <a class="resource-card" href="https://place.com/careers/" target="_blank" rel="noopener noreferrer" data-cat="grow" data-search="place careers corporate jobs and perks at place. place">
+        <div class="resource-type">PLACE</div>
+        <h3 class="resource-title">PLACE Careers</h3>
+        <p class="resource-desc">Corporate jobs and perks at PLACE.</p>
+        <span class="resource-download">Open <span aria-hidden="true">↗</span></span>
+      </a>
+
+      <a class="resource-card" href="https://place.com/spaces/" target="_blank" rel="noopener noreferrer" data-cat="grow" data-search="place spaces affinity communities such as women, military, en español, luxury, b.rel, and fire. place">
+        <div class="resource-type">PLACE</div>
+        <h3 class="resource-title">PLACE Spaces</h3>
+        <p class="resource-desc">Affinity communities such as Women, Military, en Español, Luxury, B.REL, and FIRE.</p>
+        <span class="resource-download">Open <span aria-hidden="true">↗</span></span>
+      </a>
+
+      <a class="resource-card" href="https://builthow.libsyn.com/ben-kinney-building-a-real-estate-team-strategies-mindset-and-success-secrets" target="_blank" rel="noopener noreferrer" data-cat="grow" data-search="built how: ben kinney podcast episode on building a real estate team, mindset, and systems. podcast">
+        <div class="resource-type">Podcast</div>
+        <h3 class="resource-title">Built HOW: Ben Kinney</h3>
+        <p class="resource-desc">Podcast episode on building a real estate team, mindset, and systems.</p>
+        <span class="resource-download">Open <span aria-hidden="true">↗</span></span>
+      </a>
+
+      <a class="resource-card" href="https://builthow.libsyn.com/chris-suarez-revolutionize-your-team-unpacking-the-6ps-of-lead-generation" target="_blank" rel="noopener noreferrer" data-cat="grow" data-search="built how: chris suarez podcast episode on the 6 ps of lead generation. podcast">
+        <div class="resource-type">Podcast</div>
+        <h3 class="resource-title">Built HOW: Chris Suarez</h3>
+        <p class="resource-desc">Podcast episode on the 6 Ps of lead generation.</p>
+        <span class="resource-download">Open <span aria-hidden="true">↗</span></span>
+      </a>
+
+      <a class="resource-card" href="https://www.linkedin.com/company/placeinc/" target="_blank" rel="noopener noreferrer" data-cat="grow" data-search="place on linkedin official linkedin company page. linkedin">
+        <div class="resource-type">LinkedIn</div>
+        <h3 class="resource-title">PLACE on LinkedIn</h3>
+        <p class="resource-desc">Official LinkedIn company page.</p>
+        <span class="resource-download">Open <span aria-hidden="true">↗</span></span>
+      </a>
+        </div>
+      </div>
+    </section>
+    <section id="join" data-section>
+      <div class="section-wrap">
+        <div class="section-header">
+          <div class="section-label">Events</div>
+          <h2 class="section-title">Join Us</h2>
+          <p class="section-subtitle">LFG and PLACE pages anyone can open. Event sign-up buttons are not on this preview.</p>
+        </div>
+        <div class="resources-grid">
+      <a class="resource-card" href="https://www.livefrederickmd.com/" target="_blank" rel="noopener noreferrer" data-cat="join" data-search="live frederick group lfg’s public team site. lfg">
+        <div class="resource-type">LFG</div>
+        <h3 class="resource-title">Live Frederick Group</h3>
+        <p class="resource-desc">LFG’s public team site.</p>
+        <span class="resource-download">Open <span aria-hidden="true">↗</span></span>
+      </a>
+
+      <a class="resource-card" href="https://lfg-agent-hub.onrender.com/" target="_blank" rel="noopener noreferrer" data-cat="join" data-search="lfg agent hub workshops, the friday call, growth call, and the downloads already on the hub. lfg">
+        <div class="resource-type">LFG</div>
+        <h3 class="resource-title">LFG Agent Hub</h3>
+        <p class="resource-desc">Workshops, the Friday call, Growth Call, and the downloads already on the Hub.</p>
+        <span class="resource-download">Open <span aria-hidden="true">↗</span></span>
+      </a>
+
+      <a class="resource-card" href="https://place.com/real-estate-events/" target="_blank" rel="noopener noreferrer" data-cat="join" data-search="place events public calendar of place events. place">
+        <div class="resource-type">PLACE</div>
+        <h3 class="resource-title">PLACE Events</h3>
+        <p class="resource-desc">Public calendar of PLACE events.</p>
+        <span class="resource-download">Open <span aria-hidden="true">↗</span></span>
+      </a>
+
+      <a class="resource-card" href="https://place.com/growth-webinars-resources/" target="_blank" rel="noopener noreferrer" data-cat="join" data-search="growth webinars sessions with brendon burchard and place ceo chris suarez, plus notes from past webinars. place">
+        <div class="resource-type">PLACE</div>
+        <h3 class="resource-title">Growth Webinars</h3>
+        <p class="resource-desc">Sessions with Brendon Burchard and PLACE CEO Chris Suarez, plus notes from past webinars.</p>
+        <span class="resource-download">Open <span aria-hidden="true">↗</span></span>
+      </a>
+
+      <a class="resource-card" href="https://place.com/december2026/" target="_blank" rel="noopener noreferrer" data-cat="join" data-search="live winners event place year-end event in atlanta, november 30–december 2, 2026. remove or update this after the event. place">
+        <div class="resource-type">PLACE</div>
+        <h3 class="resource-title">LIVE Winners Event</h3>
+        <p class="resource-desc">PLACE year-end event in Atlanta, November 30–December 2, 2026. Remove or update this after the event.</p>
+        <span class="resource-download">Open <span aria-hidden="true">↗</span></span>
+      </a>
+        </div>
+      </div>
+    </section>
+    <section id="toolbox" data-section>
+      <div class="section-wrap">
+        <div class="section-header">
+          <div class="section-label">On the Hub</div>
+          <h2 class="section-title">Toolbox</h2>
+          <p class="section-subtitle">The open-house scripts, pricing script, and seller sheet already published on the Hub.</p>
+        </div>
+        <div class="resources-grid">
+      <a class="resource-card" href="https://lfg-agent-hub.onrender.com/#resources" target="_blank" rel="noopener noreferrer" data-cat="toolbox" data-search="open house scripts opens the agent resources section on the hub, where the open-house scripts live. lfg hub">
+        <div class="resource-type">LFG Hub</div>
+        <h3 class="resource-title">Open House scripts</h3>
+        <p class="resource-desc">Opens the Agent Resources section on the Hub, where the open-house scripts live.</p>
+        <span class="resource-download">Open <span aria-hidden="true">↗</span></span>
+      </a>
+
+      <a class="resource-card" href="https://vimeo.com/album/3854431/video/159365022" target="_blank" rel="noopener noreferrer" data-cat="toolbox" data-search="5-5-5 pricing script listing pricing dialogue already on the hub, with a vimeo overview. vimeo">
+        <div class="resource-type">Vimeo</div>
+        <h3 class="resource-title">5-5-5 Pricing Script</h3>
+        <p class="resource-desc">Listing pricing dialogue already on the Hub, with a Vimeo overview.</p>
+        <span class="resource-download">Open <span aria-hidden="true">↗</span></span>
+      </a>
+
+      <a class="resource-card" href="https://lfg-agent-hub.onrender.com/#resources" target="_blank" rel="noopener noreferrer" data-cat="toolbox" data-search="seller information lead sheet printable seller-call intake form already on the hub. lfg hub">
+        <div class="resource-type">LFG Hub</div>
+        <h3 class="resource-title">Seller Information Lead Sheet</h3>
+        <p class="resource-desc">Printable seller-call intake form already on the Hub.</p>
+        <span class="resource-download">Open <span aria-hidden="true">↗</span></span>
+      </a>
+        </div>
+      </div>
+    </section>
+    <section id="market" data-section>
+      <div class="section-wrap">
+        <div class="section-header">
+          <div class="section-label">Market</div>
+          <h2 class="section-title">Market Data</h2>
+          <p class="section-subtitle">Public market sites. Some Bright MLS tools still require a subscriber login.</p>
+        </div>
+        <div class="resources-grid">
+      <a class="resource-card" href="https://brightmls.com/" target="_blank" rel="noopener noreferrer" data-cat="market" data-search="bright mls public bright mls site for products, training, and support. some tools need a subscriber login. bright mls">
+        <div class="resource-type">Bright MLS</div>
+        <h3 class="resource-title">Bright MLS</h3>
+        <p class="resource-desc">Public Bright MLS site for products, training, and support. Some tools need a subscriber login.</p>
+        <span class="resource-download">Open <span aria-hidden="true">↗</span></span>
+      </a>
+
+      <a class="resource-card" href="https://orientation.brightmls.com/" target="_blank" rel="noopener noreferrer" data-cat="market" data-search="bright mls new agent training public new-agent orientation and on-demand training portal. bright mls">
+        <div class="resource-type">Bright MLS</div>
+        <h3 class="resource-title">Bright MLS New Agent Training</h3>
+        <p class="resource-desc">Public new-agent orientation and on-demand training portal.</p>
+        <span class="resource-download">Open <span aria-hidden="true">↗</span></span>
+      </a>
+
+      <a class="resource-card" href="https://www.homedemandindex.com/" target="_blank" rel="noopener noreferrer" data-cat="market" data-search="home demand index public, regularly updated demand index for bright markets, including the washington, d.c. metro. bright mls">
+        <div class="resource-type">Bright MLS</div>
+        <h3 class="resource-title">Home Demand Index</h3>
+        <p class="resource-desc">Public, regularly updated demand index for Bright markets, including the Washington, D.C. metro.</p>
+        <span class="resource-download">Open <span aria-hidden="true">↗</span></span>
+      </a>
+
+      <a class="resource-card" href="https://www.homedemandindex.com/about/" target="_blank" rel="noopener noreferrer" data-cat="market" data-search="about the home demand index how the index is built and how to read it. bright mls">
+        <div class="resource-type">Bright MLS</div>
+        <h3 class="resource-title">About the Home Demand Index</h3>
+        <p class="resource-desc">How the index is built and how to read it.</p>
+        <span class="resource-download">Open <span aria-hidden="true">↗</span></span>
+      </a>
+        </div>
+      </div>
+    </section>
+    <section id="licensing" data-section>
+      <div class="section-wrap">
+        <div class="section-header">
+          <div class="section-label">Licensing</div>
+          <h2 class="section-title">Associations &amp; Licensing</h2>
+          <p class="section-subtitle">Maryland REALTORS, FCAR, and official Maryland Real Estate Commission pages.</p>
+        </div>
+        <div class="resources-grid">
+      <a class="resource-card" href="https://www.mdrealtor.org/" target="_blank" rel="noopener noreferrer" data-cat="licensing" data-search="maryland realtors statewide association home for legal resources, education, and member tools. maryland realtors">
+        <div class="resource-type">Maryland REALTORS</div>
+        <h3 class="resource-title">Maryland REALTORS</h3>
+        <p class="resource-desc">Statewide association home for legal resources, education, and member tools.</p>
+        <span class="resource-download">Open <span aria-hidden="true">↗</span></span>
+      </a>
+
+      <a class="resource-card" href="https://www.mdrealtor.org/Legal-Resources" target="_blank" rel="noopener noreferrer" data-cat="licensing" data-search="maryland realtors legal resources public landing page for association legal resources and the code of ethics. maryland realtors">
+        <div class="resource-type">Maryland REALTORS</div>
+        <h3 class="resource-title">Maryland REALTORS Legal Resources</h3>
+        <p class="resource-desc">Public landing page for association legal resources and the Code of Ethics.</p>
+        <span class="resource-download">Open <span aria-hidden="true">↗</span></span>
+      </a>
+
+      <a class="resource-card" href="https://www.mdrealtor.org/Professional-Development" target="_blank" rel="noopener noreferrer" data-cat="licensing" data-search="professional development nar-approved, mrec-aligned training, designations, and the leadership academy. maryland realtors">
+        <div class="resource-type">Maryland REALTORS</div>
+        <h3 class="resource-title">Professional Development</h3>
+        <p class="resource-desc">NAR-approved, MREC-aligned training, designations, and the Leadership Academy.</p>
+        <span class="resource-download">Open <span aria-hidden="true">↗</span></span>
+      </a>
+
+      <a class="resource-card" href="https://www.mdrealtor.org/GRI" target="_blank" rel="noopener noreferrer" data-cat="licensing" data-search="graduate, realtor institute (gri) maryland gri series information and registration. maryland realtors">
+        <div class="resource-type">Maryland REALTORS</div>
+        <h3 class="resource-title">Graduate, REALTOR Institute (GRI)</h3>
+        <p class="resource-desc">Maryland GRI series information and registration.</p>
+        <span class="resource-download">Open <span aria-hidden="true">↗</span></span>
+      </a>
+
+      <a class="resource-card" href="https://www.fcar.org/" target="_blank" rel="noopener noreferrer" data-cat="licensing" data-search="frederick county association of realtors local association home in frederick, with education and member services. fcar">
+        <div class="resource-type">FCAR</div>
+        <h3 class="resource-title">Frederick County Association of REALTORS</h3>
+        <p class="resource-desc">Local association home in Frederick, with education and member services.</p>
+        <span class="resource-download">Open <span aria-hidden="true">↗</span></span>
+      </a>
+
+      <a class="resource-card" href="https://www.fcar.org/benefits" target="_blank" rel="noopener noreferrer" data-cat="licensing" data-search="fcar member benefits overview of fcar membership benefits. fcar">
+        <div class="resource-type">FCAR</div>
+        <h3 class="resource-title">FCAR Member Benefits</h3>
+        <p class="resource-desc">Overview of FCAR membership benefits.</p>
+        <span class="resource-download">Open <span aria-hidden="true">↗</span></span>
+      </a>
+
+      <a class="resource-card" href="https://www.fcar.org/continuing-education" target="_blank" rel="noopener noreferrer" data-cat="licensing" data-search="fcar continuing education local ce offerings. fcar says classes are open to members and non-members, with different fees. fcar">
+        <div class="resource-type">FCAR</div>
+        <h3 class="resource-title">FCAR Continuing Education</h3>
+        <p class="resource-desc">Local CE offerings. FCAR says classes are open to members and non-members, with different fees.</p>
+        <span class="resource-download">Open <span aria-hidden="true">↗</span></span>
+      </a>
+
+      <a class="resource-card" href="https://www.fcar.org/classesandevents" target="_blank" rel="noopener noreferrer" data-cat="licensing" data-search="fcar classes and events local class and event calendar. fcar">
+        <div class="resource-type">FCAR</div>
+        <h3 class="resource-title">FCAR Classes and Events</h3>
+        <p class="resource-desc">Local class and event calendar.</p>
+        <span class="resource-download">Open <span aria-hidden="true">↗</span></span>
+      </a>
+
+      <a class="resource-card" href="https://www.fcar.org/classes" target="_blank" rel="noopener noreferrer" data-cat="licensing" data-search="fcar classes current class schedule and registration information. fcar">
+        <div class="resource-type">FCAR</div>
+        <h3 class="resource-title">FCAR Classes</h3>
+        <p class="resource-desc">Current class schedule and registration information.</p>
+        <span class="resource-download">Open <span aria-hidden="true">↗</span></span>
+      </a>
+
+      <a class="resource-card" href="https://labor.maryland.gov/license/mrec/" target="_blank" rel="noopener noreferrer" data-cat="licensing" data-search="maryland real estate commission official licensing commission homepage, maryland department of labor. mrec">
+        <div class="resource-type">MREC</div>
+        <h3 class="resource-title">Maryland Real Estate Commission</h3>
+        <p class="resource-desc">Official licensing commission homepage, Maryland Department of Labor.</p>
+        <span class="resource-download">Open <span aria-hidden="true">↗</span></span>
+      </a>
+
+      <a class="resource-card" href="https://labor.maryland.gov/license/mrec/mreclicfaqs.shtml" target="_blank" rel="noopener noreferrer" data-cat="licensing" data-search="mrec licensing faqs how to apply, education, continuing education, expired licenses, and related questions. mrec">
+        <div class="resource-type">MREC</div>
+        <h3 class="resource-title">MREC Licensing FAQs</h3>
+        <p class="resource-desc">How to apply, education, continuing education, expired licenses, and related questions.</p>
+        <span class="resource-download">Open <span aria-hidden="true">↗</span></span>
+      </a>
+
+      <a class="resource-card" href="https://labor.maryland.gov/license/mrec/mrecapply.shtml" target="_blank" rel="noopener noreferrer" data-cat="licensing" data-search="apply for an original license official steps to apply for a maryland real estate license after passing the exam. mrec">
+        <div class="resource-type">MREC</div>
+        <h3 class="resource-title">Apply for an Original License</h3>
+        <p class="resource-desc">Official steps to apply for a Maryland real estate license after passing the exam.</p>
+        <span class="resource-download">Open <span aria-hidden="true">↗</span></span>
+      </a>
+
+      <a class="resource-card" href="https://labor.maryland.gov/license/mrec/mrecrenew.shtml" target="_blank" rel="noopener noreferrer" data-cat="licensing" data-search="renew or reinstate a license official renewal and reinstatement information. mrec">
+        <div class="resource-type">MREC</div>
+        <h3 class="resource-title">Renew or Reinstate a License</h3>
+        <p class="resource-desc">Official renewal and reinstatement information.</p>
+        <span class="resource-download">Open <span aria-hidden="true">↗</span></span>
+      </a>
+
+      <a class="resource-card" href="https://labor.maryland.gov/license/mrec/mrecaff.shtml" target="_blank" rel="noopener noreferrer" data-cat="licensing" data-search="mrec forms and fees commission forms and fee information from the maryland real estate commission. mrec">
+        <div class="resource-type">MREC</div>
+        <h3 class="resource-title">MREC Forms and Fees</h3>
+        <p class="resource-desc">Commission forms and fee information from the Maryland Real Estate Commission.</p>
+        <span class="resource-download">Open <span aria-hidden="true">↗</span></span>
+      </a>
+
+      <a class="resource-card" href="https://labor.maryland.gov/license/mrec/mreceduc.shtml" target="_blank" rel="noopener noreferrer" data-cat="licensing" data-search="mrec education education hub for licensees and approved providers, including the 30-day ce-before-renewal rule. mrec">
+        <div class="resource-type">MREC</div>
+        <h3 class="resource-title">MREC Education</h3>
+        <p class="resource-desc">Education hub for licensees and approved providers, including the 30-day CE-before-renewal rule.</p>
+        <span class="resource-download">Open <span aria-hidden="true">↗</span></span>
+      </a>
+
+      <a class="resource-card" href="https://labor.maryland.gov/license/mrec/mreceducreq.shtml" target="_blank" rel="noopener noreferrer" data-cat="licensing" data-search="mrec continuing education requirements required hours and topics by license type and renewal. mrec">
+        <div class="resource-type">MREC</div>
+        <h3 class="resource-title">MREC Continuing Education Requirements</h3>
+        <p class="resource-desc">Required hours and topics by license type and renewal.</p>
+        <span class="resource-download">Open <span aria-hidden="true">↗</span></span>
+      </a>
+
+      <a class="resource-card" href="https://labor.maryland.gov/license/mrec/mrecproviders.shtml" target="_blank" rel="noopener noreferrer" data-cat="licensing" data-search="approved education providers official list of mrec-approved pre-licensing and continuing education providers. mrec">
+        <div class="resource-type">MREC</div>
+        <h3 class="resource-title">Approved Education Providers</h3>
+        <p class="resource-desc">Official list of MREC-approved pre-licensing and continuing education providers.</p>
+        <span class="resource-download">Open <span aria-hidden="true">↗</span></span>
+      </a>
+
+      <a class="resource-card" href="https://labor.maryland.gov/license/mrec/mreclicfactsheet.shtml" target="_blank" rel="noopener noreferrer" data-cat="licensing" data-search="ce fact sheet what every licensee should know about maryland continuing education. mrec">
+        <div class="resource-type">MREC</div>
+        <h3 class="resource-title">CE Fact Sheet</h3>
+        <p class="resource-desc">What every licensee should know about Maryland continuing education.</p>
+        <span class="resource-download">Open <span aria-hidden="true">↗</span></span>
+      </a>
+
+      <a class="resource-card" href="https://labor.maryland.gov/pq/" target="_blank" rel="noopener noreferrer" data-cat="licensing" data-search="maryland license queries department of labor hub for professional-license public queries. mrec">
+        <div class="resource-type">MREC</div>
+        <h3 class="resource-title">Maryland License Queries</h3>
+        <p class="resource-desc">Department of Labor hub for professional-license public queries.</p>
+        <span class="resource-download">Open <span aria-hidden="true">↗</span></span>
+      </a>
+
+      <a class="resource-card" href="https://dllr.state.md.us/cgi-bin/ElectronicLicensing/OP_search/OP_search.cgi?calling_app=RE::RE_qselect" target="_blank" rel="noopener noreferrer" data-cat="licensing" data-search="mrec public license query search active maryland real estate licenses by name, firm, or license number. mrec">
+        <div class="resource-type">MREC</div>
+        <h3 class="resource-title">MREC Public License Query</h3>
+        <p class="resource-desc">Search active Maryland real estate licenses by name, firm, or license number.</p>
+        <span class="resource-download">Open <span aria-hidden="true">↗</span></span>
+      </a>
+        </div>
+      </div>
+    </section>
+    <section id="government" data-section>
+      <div class="section-wrap">
+        <div class="section-header">
+          <div class="section-label">Local</div>
+          <h2 class="section-title">Frederick &amp; Maryland Government</h2>
+          <p class="section-subtitle">Property records, permits, maps, taxes, utilities, and schools that open without a login.</p>
+        </div>
+        <div class="resources-grid">
+      <a class="resource-card" href="https://dat.maryland.gov/pages/services.aspx" target="_blank" rel="noopener noreferrer" data-cat="government" data-search="sdat services assessments and taxation services directory, including the real property search and tax-credit programs. maryland">
+        <div class="resource-type">Maryland</div>
+        <h3 class="resource-title">SDAT Services</h3>
+        <p class="resource-desc">Assessments and Taxation services directory, including the real property search and tax-credit programs.</p>
+        <span class="resource-download">Open <span aria-hidden="true">↗</span></span>
+      </a>
+
+      <a class="resource-card" href="https://plats.msa.maryland.gov/pages/index.aspx" target="_blank" rel="noopener noreferrer" data-cat="government" data-search="maryland plats.net official plat and survey image system for maryland courts. maryland">
+        <div class="resource-type">Maryland</div>
+        <h3 class="resource-title">Maryland Plats.net</h3>
+        <p class="resource-desc">Official plat and survey image system for Maryland courts.</p>
+        <span class="resource-download">Open <span aria-hidden="true">↗</span></span>
+      </a>
+
+      <a class="resource-card" href="https://www.frederickcountymd.gov/7949/Zoning" target="_blank" rel="noopener noreferrer" data-cat="government" data-search="frederick county zoning county zoning administration, the zoning atlas, and the zoning ordinance. frederick county">
+        <div class="resource-type">Frederick County</div>
+        <h3 class="resource-title">Frederick County Zoning</h3>
+        <p class="resource-desc">County zoning administration, the Zoning Atlas, and the Zoning Ordinance.</p>
+        <span class="resource-download">Open <span aria-hidden="true">↗</span></span>
+      </a>
+
+      <a class="resource-card" href="https://www.frederickcountymd.gov/8000/Building-Permits-Zoning-Certificates" target="_blank" rel="noopener noreferrer" data-cat="government" data-search="county building permits county permits and zoning certificates. the city of frederick issues its own building permits. frederick county">
+        <div class="resource-type">Frederick County</div>
+        <h3 class="resource-title">County Building Permits</h3>
+        <p class="resource-desc">County permits and zoning certificates. The City of Frederick issues its own building permits.</p>
+        <span class="resource-download">Open <span aria-hidden="true">↗</span></span>
+      </a>
+
+      <a class="resource-card" href="https://www.cityoffrederickmd.gov/214/Building-Permits" target="_blank" rel="noopener noreferrer" data-cat="government" data-search="city of frederick permits city permit applications, payments, and status. use this for properties inside the city. city of frederick">
+        <div class="resource-type">City of Frederick</div>
+        <h3 class="resource-title">City of Frederick Permits</h3>
+        <p class="resource-desc">City permit applications, payments, and status. Use this for properties inside the city.</p>
+        <span class="resource-download">Open <span aria-hidden="true">↗</span></span>
+      </a>
+
+      <a class="resource-card" href="https://www.frederickcountymd.gov/7988/Data-and-Mapping" target="_blank" rel="noopener noreferrer" data-cat="government" data-search="county data and mapping census, permit reports, and the residential development pipeline. frederick county">
+        <div class="resource-type">Frederick County</div>
+        <h3 class="resource-title">County Data and Mapping</h3>
+        <p class="resource-desc">Census, permit reports, and the residential development pipeline.</p>
+        <span class="resource-download">Open <span aria-hidden="true">↗</span></span>
+      </a>
+
+      <a class="resource-card" href="https://gis-fcgmd.opendata.arcgis.com/" target="_blank" rel="noopener noreferrer" data-cat="government" data-search="frederick county gis official county gis open-data hub and map atlases. frederick county">
+        <div class="resource-type">Frederick County</div>
+        <h3 class="resource-title">Frederick County GIS</h3>
+        <p class="resource-desc">Official county GIS open-data hub and map atlases.</p>
+        <span class="resource-download">Open <span aria-hidden="true">↗</span></span>
+      </a>
+
+      <a class="resource-card" href="https://maps.frederickcountymd.gov/PropertyExplorerHelp/" target="_blank" rel="noopener noreferrer" data-cat="government" data-search="property explorer help official help for address search, the property report, parcel id, and historic imagery. frederick county">
+        <div class="resource-type">Frederick County</div>
+        <h3 class="resource-title">Property Explorer Help</h3>
+        <p class="resource-desc">Official help for address search, the property report, parcel ID, and historic imagery.</p>
+        <span class="resource-download">Open <span aria-hidden="true">↗</span></span>
+      </a>
+
+      <a class="resource-card" href="https://www.frederickcountymd.gov/69/Treasury" target="_blank" rel="noopener noreferrer" data-cat="government" data-search="frederick county treasury county treasury department, including property tax. frederick county">
+        <div class="resource-type">Frederick County</div>
+        <h3 class="resource-title">Frederick County Treasury</h3>
+        <p class="resource-desc">County treasury department, including property tax.</p>
+        <span class="resource-download">Open <span aria-hidden="true">↗</span></span>
+      </a>
+
+      <a class="resource-card" href="https://www.frederickcountymd.gov/1372/Online-Bill-Inquiries-Payments" target="_blank" rel="noopener noreferrer" data-cat="government" data-search="online bill payments official portal links for real estate tax and county water and sewer bills. frederick county">
+        <div class="resource-type">Frederick County</div>
+        <h3 class="resource-title">Online Bill Payments</h3>
+        <p class="resource-desc">Official portal links for real estate tax and county water and sewer bills.</p>
+        <span class="resource-download">Open <span aria-hidden="true">↗</span></span>
+      </a>
+
+      <a class="resource-card" href="https://www.frederickcountymd.gov/106/Water-and-Sewer-Utilities" target="_blank" rel="noopener noreferrer" data-cat="government" data-search="county water and sewer county water and sewer service, billing, and emergency contacts. this is not the city system. frederick county">
+        <div class="resource-type">Frederick County</div>
+        <h3 class="resource-title">County Water and Sewer</h3>
+        <p class="resource-desc">County water and sewer service, billing, and emergency contacts. This is not the City system.</p>
+        <span class="resource-download">Open <span aria-hidden="true">↗</span></span>
+      </a>
+
+      <a class="resource-card" href="https://www.cityoffrederickmd.gov/69/Water-Sewer" target="_blank" rel="noopener noreferrer" data-cat="government" data-search="city water and sewer city water and sewer departments, quality reports, and 24-hour contacts. city of frederick">
+        <div class="resource-type">City of Frederick</div>
+        <h3 class="resource-title">City Water and Sewer</h3>
+        <p class="resource-desc">City water and sewer departments, quality reports, and 24-hour contacts.</p>
+        <span class="resource-download">Open <span aria-hidden="true">↗</span></span>
+      </a>
+
+      <a class="resource-card" href="https://www.fcps.org/schools/find_your_school_feeder_area" target="_blank" rel="noopener noreferrer" data-cat="government" data-search="fcps school finder look up a frederick county public school and feeder area by address. fcps">
+        <div class="resource-type">FCPS</div>
+        <h3 class="resource-title">FCPS School Finder</h3>
+        <p class="resource-desc">Look up a Frederick County public school and feeder area by address.</p>
+        <span class="resource-download">Open <span aria-hidden="true">↗</span></span>
+      </a>
+
+      <a class="resource-card" href="https://experience.arcgis.com/experience/197e22ea3b8e468aa917a8a68c7692cd/" target="_blank" rel="noopener noreferrer" data-cat="government" data-search="fcps school boundary map interactive school-boundary map linked from the fcps finder page. fcps">
+        <div class="resource-type">FCPS</div>
+        <h3 class="resource-title">FCPS School Boundary Map</h3>
+        <p class="resource-desc">Interactive school-boundary map linked from the FCPS finder page.</p>
+        <span class="resource-download">Open <span aria-hidden="true">↗</span></span>
+      </a>
+        </div>
+      </div>
+    </section>
+    <section id="homebuyer" data-section>
+      <div class="section-wrap">
+        <div class="section-header">
+          <div class="section-label">Property</div>
+          <h2 class="section-title">Homebuyer, HOA, Flood, Radon, Well &amp; Septic</h2>
+          <p class="section-subtitle">State homebuyer programs, community-association guidance, and the local health and flood lookups.</p>
+        </div>
+        <div class="resources-grid">
+      <a class="resource-card" href="https://mmp.maryland.gov/" target="_blank" rel="noopener noreferrer" data-cat="homebuyer" data-search="maryland mortgage program dhcd program for 30-year fixed loans and down-payment assistance through approved lenders. dhcd">
+        <div class="resource-type">DHCD</div>
+        <h3 class="resource-title">Maryland Mortgage Program</h3>
+        <p class="resource-desc">DHCD program for 30-year fixed loans and down-payment assistance through approved lenders.</p>
+        <span class="resource-download">Open <span aria-hidden="true">↗</span></span>
+      </a>
+
+      <a class="resource-card" href="https://mmp.maryland.gov/about-mmp" target="_blank" rel="noopener noreferrer" data-cat="homebuyer" data-search="about mmp what the maryland mortgage program is and how it is administered. dhcd">
+        <div class="resource-type">DHCD</div>
+        <h3 class="resource-title">About MMP</h3>
+        <p class="resource-desc">What the Maryland Mortgage Program is and how it is administered.</p>
+        <span class="resource-download">Open <span aria-hidden="true">↗</span></span>
+      </a>
+
+      <a class="resource-card" href="https://mmp.maryland.gov/learn-about-buying-home" target="_blank" rel="noopener noreferrer" data-cat="homebuyer" data-search="learn about buying a home mmp’s seven-step homebuyer guide. dhcd">
+        <div class="resource-type">DHCD</div>
+        <h3 class="resource-title">Learn About Buying a Home</h3>
+        <p class="resource-desc">MMP’s seven-step homebuyer guide.</p>
+        <span class="resource-download">Open <span aria-hidden="true">↗</span></span>
+      </a>
+
+      <a class="resource-card" href="https://mmp.maryland.gov/learn-about-buying-home/homebuyer-education" target="_blank" rel="noopener noreferrer" data-cat="homebuyer" data-search="mmp homebuyer education approved homebuyer education and counseling resources, often required for mmp loans. dhcd">
+        <div class="resource-type">DHCD</div>
+        <h3 class="resource-title">MMP Homebuyer Education</h3>
+        <p class="resource-desc">Approved homebuyer education and counseling resources, often required for MMP loans.</p>
+        <span class="resource-download">Open <span aria-hidden="true">↗</span></span>
+      </a>
+
+      <a class="resource-card" href="https://dhcd.maryland.gov/housing/homeowner-resources" target="_blank" rel="noopener noreferrer" data-cat="homebuyer" data-search="dhcd homeowner resources foreclosure prevention, home repair, energy grants, and links into the maryland mortgage program. dhcd">
+        <div class="resource-type">DHCD</div>
+        <h3 class="resource-title">DHCD Homeowner Resources</h3>
+        <p class="resource-desc">Foreclosure prevention, home repair, energy grants, and links into the Maryland Mortgage Program.</p>
+        <span class="resource-download">Open <span aria-hidden="true">↗</span></span>
+      </a>
+
+      <a class="resource-card" href="https://dhcd.maryland.gov/policy-and-legislation/common-ownership-communities" target="_blank" rel="noopener noreferrer" data-cat="homebuyer" data-search="common ownership communities official dhcd page on hoa, condominium, and co-op rights and responsibilities. dhcd">
+        <div class="resource-type">DHCD</div>
+        <h3 class="resource-title">Common Ownership Communities</h3>
+        <p class="resource-desc">Official DHCD page on HOA, condominium, and co-op rights and responsibilities.</p>
+        <span class="resource-download">Open <span aria-hidden="true">↗</span></span>
+      </a>
+
+      <a class="resource-card" href="https://msc.fema.gov/portal/home" target="_blank" rel="noopener noreferrer" data-cat="homebuyer" data-search="fema flood map service center official source for flood maps and flood-hazard information. fema">
+        <div class="resource-type">FEMA</div>
+        <h3 class="resource-title">FEMA Flood Map Service Center</h3>
+        <p class="resource-desc">Official source for flood maps and flood-hazard information.</p>
+        <span class="resource-download">Open <span aria-hidden="true">↗</span></span>
+      </a>
+
+      <a class="resource-card" href="https://msc.fema.gov/portal/search" target="_blank" rel="noopener noreferrer" data-cat="homebuyer" data-search="fema flood map search search flood maps by address. fema">
+        <div class="resource-type">FEMA</div>
+        <h3 class="resource-title">FEMA Flood Map Search</h3>
+        <p class="resource-desc">Search flood maps by address.</p>
+        <span class="resource-download">Open <span aria-hidden="true">↗</span></span>
+      </a>
+
+      <a class="resource-card" href="https://health.maryland.gov/phpa/OEHFP/EH/pages/radon.aspx" target="_blank" rel="noopener noreferrer" data-cat="homebuyer" data-search="maryland radon information state radon page, maryland zip-code map, and testing guidance. epa action level is 4 pci/l. maryland health">
+        <div class="resource-type">Maryland Health</div>
+        <h3 class="resource-title">Maryland Radon Information</h3>
+        <p class="resource-desc">State radon page, Maryland ZIP-code map, and testing guidance. EPA action level is 4 pCi/L.</p>
+        <span class="resource-download">Open <span aria-hidden="true">↗</span></span>
+      </a>
+
+      <a class="resource-card" href="https://health.frederickcountymd.gov/375/Well-Septic" target="_blank" rel="noopener noreferrer" data-cat="homebuyer" data-search="well &amp; septic frederick county well permits, perc tests, septic design and repair, and record requests. county health">
+        <div class="resource-type">County Health</div>
+        <h3 class="resource-title">Well &amp; Septic</h3>
+        <p class="resource-desc">Frederick County well permits, perc tests, septic design and repair, and record requests.</p>
+        <span class="resource-download">Open <span aria-hidden="true">↗</span></span>
+      </a>
+
+      <a class="resource-card" href="https://health.frederickcountymd.gov/340/Well-Water-Testing" target="_blank" rel="noopener noreferrer" data-cat="homebuyer" data-search="well water testing county well-water testing information, including bacteria, nitrate, and turbidity. county health">
+        <div class="resource-type">County Health</div>
+        <h3 class="resource-title">Well Water Testing</h3>
+        <p class="resource-desc">County well-water testing information, including bacteria, nitrate, and turbidity.</p>
+        <span class="resource-download">Open <span aria-hidden="true">↗</span></span>
+      </a>
+
+      <a class="resource-card" href="https://health.frederickcountymd.gov/378/Well-Permit" target="_blank" rel="noopener noreferrer" data-cat="homebuyer" data-search="well permit how to apply for a frederick county well permit. county health">
+        <div class="resource-type">County Health</div>
+        <h3 class="resource-title">Well Permit</h3>
+        <p class="resource-desc">How to apply for a Frederick County well permit.</p>
+        <span class="resource-download">Open <span aria-hidden="true">↗</span></span>
+      </a>
+        </div>
+      </div>
+    </section>
+    <section id="vendors" data-section>
+      <div class="section-wrap">
+        <div class="section-header">
+          <div class="section-label">Partners</div>
+          <h2 class="section-title">Preferred Vendors</h2>
+          <p class="section-subtitle">Names will be added after the approved lender, title, inspector, and partner list is ready.</p>
+        </div>
+        <div class="resources-grid">
+      <div class="resource-card resource-soon" data-cat="vendors" data-search="preferred vendors coming soon lenders title home inspectors pest survey insurance partners">
+        <div class="resource-type">Coming soon</div>
+        <h3 class="resource-title">LFG preferred vendors</h3>
+        <p class="resource-desc">Coming soon. Room here later for lenders, title, home inspectors, pest, survey, insurance, and similar partners.</p>
+        <span class="resource-download is-disabled">Coming soon</span>
+      </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-logo">Live Frederick Group</div>
+    <div class="footer-sub">Live Frederick Group at Keller Williams Realty Centre, powered by PLACE</div>
+    <ul class="footer-links">
+      <li><a href="index.html">Agent Hub</a></li>
+      <li><a href="index.html#workshops">Events</a></li>
+      <li><a href="index.html#resources">Hub downloads</a></li>
+      <li><a href="https://www.livefrederickmd.com/" target="_blank" rel="noopener noreferrer">livefrederickmd.com</a></li>
+    </ul>
+    <p class="footer-copy">© 2026 Live Frederick Group. All rights reserved.</p>
+    <p class="footer-copy" style="margin-top:8px;">Live Frederick Group is a real estate team affiliated with Keller Williams Realty Centre, powered by PLACE. This page is for licensed real estate professionals. Nothing here is a promise of income or results.</p>
+  </footer>
+
+  <script>
+    (function () {
+      var input = document.getElementById("search");
+      var cards = Array.prototype.slice.call(document.querySelectorAll("[data-search]"));
+      var sections = Array.prototype.slice.call(document.querySelectorAll("[data-section]"));
+      var chips = Array.prototype.slice.call(document.querySelectorAll("[data-chip]"));
+      var empty = document.getElementById("emptyState");
+      var count = document.getElementById("resultCount");
+      var active = "all";
+      var totalLinks = cards.filter(function (card) { return card.tagName === "A"; }).length;
+
+      function setChip(id) {
+        active = id;
+        chips.forEach(function (chip) {
+          chip.setAttribute("aria-pressed", chip.getAttribute("data-chip") === id ? "true" : "false");
+        });
+      }
+
+      function apply() {
+        var q = input.value.trim().toLowerCase();
+        var shownLinks = 0;
+        cards.forEach(function (card) {
+          var hay = card.getAttribute("data-search") || "";
+          var catOk = active === "all" || card.getAttribute("data-cat") === active;
+          var textOk = !q || hay.indexOf(q) !== -1;
+          var show = catOk && textOk;
+          card.hidden = !show;
+          if (show && card.tagName === "A") shownLinks += 1;
+        });
+        sections.forEach(function (section) {
+          section.hidden = !section.querySelector("[data-search]:not([hidden])");
+        });
+        var none = shownLinks === 0 && !document.querySelector(".resource-soon:not([hidden])");
+        empty.className = none ? "empty visible" : "empty";
+        if (active === "all" && !q) {
+          count.textContent = totalLinks + " public links";
+        } else if (shownLinks === 0 && document.querySelector(".resource-soon:not([hidden])")) {
+          count.textContent = "Vendor list coming soon";
+        } else {
+          count.textContent = "Showing " + shownLinks + (shownLinks === 1 ? " link" : " links");
+        }
+      }
+
+      chips.forEach(function (chip) {
+        chip.addEventListener("click", function () {
+          setChip(chip.getAttribute("data-chip"));
+          apply();
+          var target = document.getElementById(chip.getAttribute("data-chip"));
+          if (target && active !== "all") target.scrollIntoView({ behavior: "smooth", block: "start" });
+        });
+      });
+      input.addEventListener("input", apply);
+
+      var params = new URLSearchParams(window.location.search);
+      if (params.get("q")) input.value = params.get("q");
+      if (params.get("cat") && document.querySelector('[data-chip="' + params.get("cat") + '"]')) {
+        setChip(params.get("cat"));
+      }
+      apply();
+    })();
+  </script>
+</body>
+</html>
